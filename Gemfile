@@ -12,6 +12,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'backbone-on-rails'
 
 group :development, :test do
+  gem 'pry-rails'
   gem 'byebug'
   gem 'better_errors'
   gem 'binding_of_caller'
