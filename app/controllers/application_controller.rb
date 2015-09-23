@@ -12,12 +12,12 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    !!@current_user
+    !!current_user
   end
 
   def login!(user)
-    session = user.sessions.new
-    session[:session_token] = session.session_token
+    new_session = user.sessions.create
+    session[:session_token] = new_session.session_token
   end
 
   def logout!(user)
