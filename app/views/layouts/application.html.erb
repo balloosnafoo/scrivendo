@@ -8,21 +8,11 @@
 </head>
 <body>
 
-<nav class="navbar">
-  
-</nav>
+<% unless logged_in? %>
+  <%= render partial: "shared/outer_nav" %>
+<% end %>
 
 <%= yield %>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    Scrivendo.CURRENT_USER = {
-      username: <%= current_user.username %>
-    }
-
-    Scrivendo.initialize();
-  });
-</script>
 
 </body>
 </html>
