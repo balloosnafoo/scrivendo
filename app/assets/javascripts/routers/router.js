@@ -61,7 +61,11 @@ Scrivendo.Routers.Router = Backbone.Router.extend({
 
   // THIS IS WHERE YOU WERE CODING
   tellingsShow: function (storyId, tellingId) {
-    var view = new Scrivendo.Views.TellingsShow();
+    var story = this.stories.getOrFetch(storyId, { telling_id: tellingId })
+    var view = new Scrivendo.Views.TellingsShow({
+      story: story,
+      tellingId: tellingId
+    });
 
     this._swapView(view);
   },

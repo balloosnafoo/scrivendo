@@ -1,10 +1,10 @@
-<h1><%= story.get("title") %></h1>
+<h1><%= story.escape("title") %></h1>
 
 <p>
-  <%= story.get("description") %>
+  <%= story.escape("description") %>
 </p>
 
 <!-- This needs to be adjusted to current_user -->
-<% if (story.get("user_id") || true ) { %>
+<% if (story.escape("user_id") || true ) { %>
   <a href="#/stories/<%= story.id %>/tellings/new">Tell this story</a>
 <% } %>

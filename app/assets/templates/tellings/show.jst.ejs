@@ -1,0 +1,10 @@
+<% if (telling) { %>
+  <h1><%= telling.escape("title") %></h1>
+
+  <% var tellingPars = telling.escape("body").split("\n") %>
+  <% for (var i = 0; i < tellingPars.length; i++) { %>
+    <p>
+      <%= tellingPars[i] %>
+    </p>
+  <% } %>
+<% } %>
