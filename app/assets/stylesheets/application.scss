@@ -14,5 +14,8 @@
  *= require_self
  */
 
+// Global overrides
+// $font-family-base: sans;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";

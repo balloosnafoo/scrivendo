@@ -1,2 +1,0 @@
-class TellingsController < ApplicationController
-end
