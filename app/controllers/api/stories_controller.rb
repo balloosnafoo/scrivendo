@@ -2,13 +2,15 @@ class Api::StoriesController < ApplicationController
   def create
     @story = Story.new(story_params)
     if @story.save
-      render :show
+      render json: @story
     else
       render json: @story.errors.full_messages, status: :unprocessable_entity
     end
   end
 
   def index
+    @stories = Story.filtered_index(params)
+    render :index
   end
 
   def show

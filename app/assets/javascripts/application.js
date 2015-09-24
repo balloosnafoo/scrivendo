@@ -16,6 +16,7 @@
 //= require backbone
 //= require scrivendo
 //= require bootstrap
+//= require serialize-json
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

@@ -22,7 +22,8 @@ Scrivendo.Routers.Router = Backbone.Router.extend({
   // Stories routes
   storiesNew: function () {
     var view = new Scrivendo.Views.StoriesNew({
-      collection: this.stories
+      collection: this.stories,
+      model: new Scrivendo.Models.Story()
     });
 
     this._swapView(view)

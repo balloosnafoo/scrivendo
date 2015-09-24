@@ -3,6 +3,10 @@ Scrivendo.Views.StoriesNew = Backbone.View.extend({
 
   className: 'container',
 
+  events: {
+    "submit form": "postStory",
+  },
+
   render: function () {
     var renderedContent = this.template({
 
@@ -10,5 +14,19 @@ Scrivendo.Views.StoriesNew = Backbone.View.extend({
 
     this.$el.html(renderedContent);
     return this;
+  },
+
+  postStory: function (event) {
+    event.preventDefault();
+    var storyData = $(event.currentTarget).serializeJSON().story;
+    this.model.set(storyData);
+    this.model.save({}, {
+      success: function () {
+        debugger;
+      },
+      error: function () {
+        debugger;
+      }
+    })
   }
 });
