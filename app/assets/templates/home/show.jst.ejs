@@ -3,7 +3,7 @@
 <h3>Stories</h3>
 <ul>
   <% for (var i = 0; i < stories.models.length; i++) { %>
-    <li><% stories.models[i].get("title") %></li>
+    <li><%= stories.models[i].escape("title") %></li>
   <% } %>
 </ul>
 

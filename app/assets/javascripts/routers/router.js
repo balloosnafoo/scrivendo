@@ -15,6 +15,7 @@ Scrivendo.Routers.Router = Backbone.Router.extend({
   // Home routes
   homeShow: function () {
     // final home page design hasn't been decided
+    this.stories.fetch();
     var home = new Scrivendo.Views.HomeShow({
       collection: this.stories
     });

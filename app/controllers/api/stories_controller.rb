@@ -9,7 +9,8 @@ class Api::StoriesController < ApplicationController
   end
 
   def index
-    @stories = Story.filtered_index(params)
+    # @stories = Story.filtered_index(params)
+    @stories = current_user.stories
     render :index
   end
 
