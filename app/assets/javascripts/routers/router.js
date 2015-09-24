@@ -49,11 +49,14 @@ Scrivendo.Routers.Router = Backbone.Router.extend({
   tellingsNew: function (storyId) {
     var story = this.stories.getOrfFetch(storyId);
     var view = new Scrivendo.Views.TellingsNew({
-      story: story
+      story: story,
+      model: new Scrivendo.Models.Telling({
+        story_id: storyId
+      })
     });
 
     this._swapView(view);
-  }
+  },
 
   // Private functions
   _swapView: function (view) {

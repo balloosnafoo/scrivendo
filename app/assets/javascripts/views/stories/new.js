@@ -27,10 +27,11 @@ Scrivendo.Views.StoriesNew = Backbone.View.extend({
           "stories/" + this.model.id,
           { trigger: true }
         );
-      },
-      error: function () {
-        debugger;
-      }
-    })
+      }.bind(this),
+      error: function (story, response) {
+        this.errors = JSON.parse(response.responseText);
+        this.render();
+      }.bind(this)
+    });
   }
 });
