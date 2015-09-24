@@ -1,0 +1,10 @@
+<h1>This is the home show</h1>
+
+<h3>Stories</h3>
+<ul>
+  <% for (var i = 0; i < stories.models.length; i++) { %>
+    <li><% stories.models[i].get("title") %></li>
+  <% } %>
+</ul>
+
+<a href="#/stories/new">Create a new story</a>

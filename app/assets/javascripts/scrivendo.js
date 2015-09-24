@@ -10,7 +10,11 @@ window.Scrivendo = {
       stories: stories
     })
 
-    $("#navbar").html(nav.render().$el);
+    var navbar = new Scrivendo.Views.Navbar({
+      router: router
+    });
+
+    $("#navbar").html(navbar.render().$el);
 
     Backbone.history.start();
   }

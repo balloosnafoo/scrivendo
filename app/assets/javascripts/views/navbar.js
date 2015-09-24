@@ -2,7 +2,7 @@ Scrivendo.Views.Navbar = Backbone.View.extend({
   template: JST['navbar/navbar'],
 
   initialize: function (options) {
-    this.router = router;
+    this.router = options.router;
 
     this.listenTo(this.router, "route", this.handleRoute)
   },
