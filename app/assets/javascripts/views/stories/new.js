@@ -22,7 +22,11 @@ Scrivendo.Views.StoriesNew = Backbone.View.extend({
     this.model.set(storyData);
     this.model.save({}, {
       success: function () {
-        debugger;
+        this.collection.add(this.model, {merge: true});
+        Backbone.history.navigate(
+          "stories/" + this.model.id,
+          { trigger: true }
+        );
       },
       error: function () {
         debugger;

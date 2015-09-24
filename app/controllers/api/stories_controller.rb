@@ -14,6 +14,8 @@ class Api::StoriesController < ApplicationController
   end
 
   def show
+    @story = Story.includes(:tellings).find(params[:id])
+    render :show
   end
 
   def update

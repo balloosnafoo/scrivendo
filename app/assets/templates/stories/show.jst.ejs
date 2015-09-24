@@ -1,0 +1,10 @@
+<h1><%= story.get("title") %></h1>
+
+<p>
+  <%= story.get("description") %>
+</p>
+
+<!-- This needs to be adjusted to current_user -->
+<% if (story.get("user_id") || true ) { %>
+  <a href="#/stories/<%= story.id %>/tellings/new">Tell this story</a>
+<% } %>
