@@ -28,6 +28,14 @@ Scrivendo.Routers.Router = Backbone.Router.extend({
     this._swapView(view)
   },
 
+  storiesIndex: function () {
+
+  },
+
+  // Tellings routes
+  // ...none yet
+
+  // Private functions
   _swapView: function (view) {
     this._view && this._view.remove();
     this._view = view;

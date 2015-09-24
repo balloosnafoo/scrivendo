@@ -1,8 +1,11 @@
 class StoriesController < ApplicationController
-  def new
-  end
-
   def create
+    @story = Story.new(story_params)
+    if @story.save
+      render :show
+    else
+      render json: @story.errors.full_messages, status: :unprocessable_entity
+    end
   end
 
   def index
@@ -11,9 +14,14 @@ class StoriesController < ApplicationController
   def show
   end
 
-  def edit
+  def update
   end
 
   def destroy
+  end
+
+  private
+  def story_params
+    params.require(:story).permit(:title, :description)
   end
 end
