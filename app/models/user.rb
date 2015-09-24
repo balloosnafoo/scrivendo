@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :sessions
   has_many :stories
+  has_many :tellings, through: :stories, source: :tellings
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)

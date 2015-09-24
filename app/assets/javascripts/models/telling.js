@@ -1,3 +1,3 @@
-Scrivendo.Models.Telling = Backbone.Models.extend({
+Scrivendo.Models.Telling = Backbone.Model.extend({
   url: 'api/tellings'
 })

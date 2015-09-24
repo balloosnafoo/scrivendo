@@ -1,0 +1,22 @@
+<h1><%= story.get("title") %></h1>
+
+<p>
+  Description: <%= story.get("description") %>
+</p>
+
+<form>
+  <div class="form-group">
+    <label for="telling-title">Title</label>
+    <input type="text"
+           class="form-control"
+           name="telling[name]"
+           value=""
+           id="telling-title">
+  </div>
+
+  <div class="form-group">
+    <textarea name="telling[body]" class='form-control' rows="20"></textarea>
+  </div>
+
+  <input type="submit" value="Tell it!">
+</form>

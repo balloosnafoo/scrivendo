@@ -9,10 +9,13 @@ Scrivendo.Views.TellingsNew = Backbone.View.extend({
 
   initialize: function (options) {
     this.story = options.story;
+    this.listenTo(this.story, "sync", this.render);
   },
 
   render: function () {
-    var renderedContent = this.template();
+    var renderedContent = this.template({
+      story: this.story
+    });
 
     this.$el.html(renderedContent);
     return this;
@@ -30,7 +33,7 @@ Scrivendo.Views.TellingsNew = Backbone.View.extend({
         );
       }.bind(this),
       error: function (telling, response) {
-        this.errors = JSON.parse(reponse.responseText);
+        this.errors = JSON.parse(response.responseText);
         this.render();
       }.bind(this)
     });
