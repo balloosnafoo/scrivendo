@@ -4,6 +4,14 @@
   <%= story.escape("description") %>
 </p>
 
+<ul>
+  <% for (var i = 0; i < story.tellings().length; i++) { %>
+  <li><a href="#/stories/<%= story.id %>/tellings/<%= story.tellings().models[i].id %>">
+    <%= story.tellings().models[i].escape("title") %>
+  </a></li>
+  <% } %>
+</ul>
+
 <!-- This needs to be adjusted to current_user -->
 <% if (story.escape("user_id") || true ) { %>
   <a href="#/stories/<%= story.id %>/tellings/new">Tell this story</a>

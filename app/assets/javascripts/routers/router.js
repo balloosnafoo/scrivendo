@@ -10,6 +10,7 @@ Scrivendo.Routers.Router = Backbone.Router.extend({
     "stories/:id": "storiesShow",
     "stories/:storyId/tellings/new": "tellingsNew",
     "stories/:storyId/tellings/:tellingId": "tellingsShow",
+    "stories/:storyId/tellings": "tellingsIndex",
   },
 
   // Home routes
@@ -60,7 +61,6 @@ Scrivendo.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
-  // THIS IS WHERE YOU WERE CODING
   tellingsShow: function (storyId, tellingId) {
     var story = this.stories.getOrFetch(storyId, { telling_id: tellingId })
     var view = new Scrivendo.Views.TellingsShow({
@@ -69,6 +69,10 @@ Scrivendo.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(view);
+  },
+
+  tellingsIndex: function (storyId) {
+
   },
 
   // Private functions

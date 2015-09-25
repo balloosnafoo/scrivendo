@@ -3,7 +3,9 @@
 <h3>Stories</h3>
 <ul>
   <% for (var i = 0; i < stories.models.length; i++) { %>
-    <li><%= stories.models[i].escape("title") %></li>
+    <li><a href="#/stories/<%= stories.models[i].id %>">
+      <%= stories.models[i].escape("title") %>
+    </a></li>
   <% } %>
 </ul>
 
