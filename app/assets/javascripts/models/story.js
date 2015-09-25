@@ -10,11 +10,10 @@ Scrivendo.Models.Story = Backbone.Model.extend({
 
   parse: function (response) {
     if (response.tellings) {
-      response;
       this.tellings().set(response.tellings, {parse: true});
       delete response.tellings;
     }
 
-    return response
+    return response;
   }
 });

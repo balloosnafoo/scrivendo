@@ -28,10 +28,12 @@ encourage critics to be more thoughtful and careful.
 ## Minimum Viable Product
 
 - [X] Users can create profiles and sign in
-- [ ] Writers can create new stories
-- [ ] Writers can add retellings to their stories
+- [X] Writers can create new stories
+- [X] Writers can add retellings to their stories
 - [ ] Writers can ask for review of a story by itself or by comparison to a
       previous telling
+- [ ] Writers receive random reminders about stories that they haven't told
+      recently
 - [ ] Critics can write reviews
 - [ ] Critics can make suggestions about future retellings of stories
 - [ ] Users can create narrative restraints for writers to apply to new

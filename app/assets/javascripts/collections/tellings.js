@@ -1,5 +1,5 @@
 Scrivendo.Collections.Tellings = Backbone.Collection.extend({
-  urlRoot: 'api/tellings',
+  url: 'api/tellings',
 
   model: Scrivendo.Models.Telling,
 

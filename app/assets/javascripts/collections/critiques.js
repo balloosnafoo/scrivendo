@@ -1,5 +1,5 @@
 Scrivendo.Collections.Critiques = Backbone.Collection.extend({
-  urlRoot: "api/critiques",
+  url: "api/critiques",
 
   model: Scrivendo.Models.Critique
 });

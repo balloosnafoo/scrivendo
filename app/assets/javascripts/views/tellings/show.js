@@ -3,6 +3,10 @@ Scrivendo.Views.TellingsShow = Backbone.View.extend({
 
   className: "container",
 
+  events: {
+    "submit form": "postCritique"
+  },
+
   initialize: function (options) {
     this.story = options.story;
     this.tellingId = options.tellingId
@@ -19,4 +23,26 @@ Scrivendo.Views.TellingsShow = Backbone.View.extend({
     this.$el.html(renderedContent);
     return this;
   },
+
+  postCritique: function (event) {
+    event.preventDefault();
+    critiqueData = $(event.currentTarget).serializeJSON().critique;
+    var critique = new Scrivendo.Models.Critique(critiqueData);
+    critique.save({}, {
+      success: function () {
+        debugger;
+      }.bind(this),
+      error: function () {
+        debugger;
+      }.bind(this)
+    })
+  },
+
+  telling: function () {
+    if (!this._telling) {
+      this._telling = this.story.tellings().get(this.tellingId);
+    }
+
+    return this._telling;
+  }
 });

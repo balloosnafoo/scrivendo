@@ -1,10 +1,30 @@
 <% if (telling) { %>
   <h1><%= telling.escape("title") %></h1>
 
+  <!-- Split by \n for formatting purposes -->
   <% var tellingPars = telling.escape("body").split("\n") %>
   <% for (var i = 0; i < tellingPars.length; i++) { %>
     <p>
       <%= tellingPars[i] %>
     </p>
   <% } %>
+
+  <hr>
+  <h3>Critiques</h3>
+
+  <form>
+    <div class="form-group">
+      <textarea name="critique[body]" rows="8" class="form-control"></textarea>
+    </div>
+
+    <input type="hidden" name="critique[telling_id]" value="<%= telling.id %>">
+    <input type="submit" value="Submit">
+  </form>
+
+  <ul>
+  <% for (var i = 0; i < telling.critiques().length; i++) { %>
+    <li><%= telling.critiques().models[i].escape("body") %></li>
+  <% } %>
+  </ul>
+
 <% } %>
