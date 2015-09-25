@@ -1,0 +1,9 @@
+<% if (stories.length) { %>
+<ul>
+  <% for (var i = 0; i < stories.length; i++) { %>
+  <li><a href="#/stories/<%= stories.models[i].id %>">
+    <%= stories.models[i].escape("title") %>
+  </a></li>
+  <% } %>
+</ul>
+<% } %>
