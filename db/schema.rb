@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925041348) do
+ActiveRecord::Schema.define(version: 20150926203101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "challenges", force: :cascade do |t|
+    t.integer  "story_id",      null: false
+    t.integer  "challenger_id", null: false
+    t.string   "description",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "critiques", force: :cascade do |t|
     t.text     "body",       null: false
@@ -22,6 +30,13 @@ ActiveRecord::Schema.define(version: 20150925041348) do
     t.integer  "critic_id",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reminders", force: :cascade do |t|
+    t.integer  "story_id",    null: false
+    t.datetime "appointment", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -60,6 +75,13 @@ ActiveRecord::Schema.define(version: 20150925041348) do
     t.string   "password_digest", null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "variants", force: :cascade do |t|
+    t.string   "description", null: false
+    t.integer  "creator_id",  null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
