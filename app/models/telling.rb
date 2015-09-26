@@ -3,4 +3,6 @@ class Telling < ActiveRecord::Base
 
   belongs_to :story
   has_one :user, through: :story, source: :user
+  has_many :critiques
+  has_many :critics, through: :critiques, source: :critic
 end

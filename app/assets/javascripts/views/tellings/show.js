@@ -8,16 +8,13 @@ Scrivendo.Views.TellingsShow = Backbone.View.extend({
   },
 
   initialize: function (options) {
-    this.story = options.story;
-    this.tellingId = options.tellingId
-
-    this.listenTo(this.story, "sync", this.render);
+    this.listenTo(this.model, "sync", this.render);
   },
 
   render: function () {
     var renderedContent = this.template({
-      story: this.story,
-      telling: this.story.tellings().get(this.tellingId)
+      story: this.model.story(),
+      telling: this.model
     });
 
     this.$el.html(renderedContent);
@@ -37,12 +34,4 @@ Scrivendo.Views.TellingsShow = Backbone.View.extend({
       }.bind(this)
     })
   },
-
-  telling: function () {
-    if (!this._telling) {
-      this._telling = this.story.tellings().get(this.tellingId);
-    }
-
-    return this._telling;
-  }
 });

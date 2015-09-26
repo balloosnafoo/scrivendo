@@ -13,6 +13,8 @@ class Api::TellingsController < ApplicationController
   end
 
   def show
+    @telling = Telling.includes(:story, :critiques).find(params[:id])
+    render :show
   end
 
   private

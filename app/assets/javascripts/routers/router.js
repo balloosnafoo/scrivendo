@@ -1,6 +1,7 @@
 Scrivendo.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.stories = options.stories;
+    this.tellings = new Scrivendo.Collections.Tellings();
     this.$rootEl = options.$rootEl;
   },
 
@@ -68,10 +69,9 @@ Scrivendo.Routers.Router = Backbone.Router.extend({
   },
 
   tellingsShow: function (storyId, tellingId) {
-    var story = this.stories.getOrFetch(storyId, { telling_id: tellingId })
+    var telling = this.tellings.getOrFetch(tellingId);
     var view = new Scrivendo.Views.TellingsShow({
-      story: story,
-      tellingId: tellingId
+      model: telling
     });
 
     this._swapView(view);
