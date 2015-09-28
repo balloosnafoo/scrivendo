@@ -25,12 +25,14 @@ Scrivendo.Views.TellingsShow = Backbone.View.extend({
     event.preventDefault();
     critiqueData = $(event.currentTarget).serializeJSON().critique;
     var critique = new Scrivendo.Models.Critique(critiqueData);
-    critique.save({}, {
+    critique.save({telling_id: this.model.id}, {
       success: function () {
-        debugger;
+        this.model.critiques().add(critique);
+        this.render();
       }.bind(this),
-      error: function () {
-        debugger;
+      error: function (critique, response) {
+        this.errors = JSON.parse(response.responseText);
+        this.render();
       }.bind(this)
     })
   },
