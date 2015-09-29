@@ -1,6 +1,10 @@
 Scrivendo.Views.Navbar = Backbone.View.extend({
   template: JST['navbar/navbar'],
 
+  events: {
+    "click .logout": "logout"
+  },
+
   initialize: function (options) {
     this.router = options.router;
 
@@ -21,7 +25,7 @@ Scrivendo.Views.Navbar = Backbone.View.extend({
   logout: function (event) {
     event.preventDefault();
     $.ajax({
-      url: "/session/",
+      url: "/session",
       type: "DELETE",
       success: function () {
         window.location = "/";

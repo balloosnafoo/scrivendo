@@ -18,6 +18,11 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    logout!(current_user)
+    render json: current_user
+  end
+
   private
   def user_params
     params.require(:user).permit(:username, :password)
