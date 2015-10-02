@@ -26,16 +26,25 @@
   <h3>Critiques</h3>
   <ul class="list-group">
   <% for (var i = 0; i < telling.critiques().length; i++) { %>
+    <% var critique = telling.critiques().models[i]; %>
+
     <li class="list-group-item">
+
+      <!-- Critique header -->
       <div class="critique-header">
+        <!-- Apple icon -->
         <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+
+        <!-- Link to critic show -->
         <a class="critic-username"
-           href="#/critics/<%= telling.critiques().models[i].escape("critic_id") %>">
-          <%= telling.critiques().models[i].escape("username") %>
+           href="#/critics/<%= critique.escape("critic_id") %>">
+          <%= critique.escape("username") %>
         </a>
       </div>
+
+      <!-- Critique body -->
       <div class="critique-body">
-        <%= telling.critiques().models[i].escape("body") %>
+        <%= critique.escape("body") %>
       </div>
     </li>
   <% } %>
