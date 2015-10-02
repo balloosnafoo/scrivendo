@@ -2,6 +2,7 @@ Scrivendo.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.stories = options.stories;
     this.tellings = new Scrivendo.Collections.Tellings();
+    this.variants = new Scrivendo.Collections.Variants();
     this.$rootEl = options.$rootEl;
   },
 
@@ -13,6 +14,7 @@ Scrivendo.Routers.Router = Backbone.Router.extend({
     "stories/:storyId/tellings/new": "tellingsNew",
     "stories/:storyId/tellings/:tellingId": "tellingsShow",
     "stories/:storyId/tellings": "tellingsIndex",
+    "variants(?*querystring)": "variantsIndex",
   },
 
   // Home routes
@@ -78,7 +80,18 @@ Scrivendo.Routers.Router = Backbone.Router.extend({
   },
 
   tellingsIndex: function (storyId) {
+    // potentially unnecessary, as the same function is ostensibly performed
+    // by the story show page.
+  },
 
+  // Variants routes
+  variantsIndex: function () {
+    this.variants.fetch()
+    var view = new Scrivendo.Views.VariantsIndex({
+      collection: this.variants
+    });
+
+    this._swapView(view);
   },
 
   // Private functions

@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :stories, only: [:create, :index, :show, :update, :destroy]
     resources :tellings, only: [:create, :index, :show, :update, :destroy]
     resources :critiques, only: [:create, :index, :show, :update, :destroy]
+    resources :variants, only: [:create, :index, :show, :update, :destroy]
   end
 end

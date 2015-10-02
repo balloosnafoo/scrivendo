@@ -1,0 +1,11 @@
+<h1>Variants</h1>
+
+<ul>
+<% for (var i = 0; i < variants.length; i++) { %>
+  <li>
+    <a href="#/variants/<%= variants.models[i].id %>">
+      <%= variants.models[i].escape("title") %>
+    </a>
+  </li>
+<% } %>
+</ul>
