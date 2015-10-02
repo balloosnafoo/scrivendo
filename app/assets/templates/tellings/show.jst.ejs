@@ -10,8 +10,9 @@
   <% } %>
 
   <hr>
-  <h3>Critiques</h3>
 
+  <!-- New critique form -->
+  <h4>Critique this telling:</h4>
   <form>
     <div class="form-group">
       <textarea name="critique[body]" rows="8" class="form-control"></textarea>
@@ -21,9 +22,22 @@
     <input type="submit" value="Submit">
   </form>
 
-  <ul>
+  <!-- Show current critiques -->
+  <h3>Critiques</h3>
+  <ul class="list-group">
   <% for (var i = 0; i < telling.critiques().length; i++) { %>
-    <li><%= telling.critiques().models[i].escape("body") %></li>
+    <li class="list-group-item">
+      <div class="critique-header">
+        <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+        <a class="critic-username"
+           href="#/critics/<%= telling.critiques().models[i].escape("critic_id") %>">
+          <%= telling.critiques().models[i].escape("username") %>
+        </a>
+      </div>
+      <div class="critique-body">
+        <%= telling.critiques().models[i].escape("body") %>
+      </div>
+    </li>
   <% } %>
   </ul>
 

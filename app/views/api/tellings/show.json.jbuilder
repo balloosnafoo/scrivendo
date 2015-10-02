@@ -10,5 +10,6 @@ end
 json.critiques do
   json.array! @telling.critiques do |critique|
     json.extract! critique, :id, :critic_id, :body
+    json.username critique.critic.username
   end
 end

@@ -13,7 +13,7 @@ class Api::TellingsController < ApplicationController
   end
 
   def show
-    @telling = Telling.includes(:story, :critiques).find(params[:id])
+    @telling = Telling.includes(:story, :critiques, :critics).find(params[:id])
     render :show
   end
 
