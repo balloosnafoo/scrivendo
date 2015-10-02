@@ -9,6 +9,7 @@ Scrivendo.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "homeShow",
     "stories": "storiesIndex",
+    "stories/browse": "storiesBrowse",
     "stories/new": "storiesNew",
     "stories/:id": "storiesShow",
     "stories/:storyId/tellings/new": "tellingsNew",
@@ -49,6 +50,15 @@ Scrivendo.Routers.Router = Backbone.Router.extend({
   },
 
   storiesIndex: function () {
+    this.stories.fetch({ data: {user_stories: true } });
+    var view = new Scrivendo.Views.StoriesIndex({
+      collection: this.stories
+    });
+
+    this._swapView(view);
+  },
+
+  storiesBrowse: function () {
     this.stories.fetch();
     var view = new Scrivendo.Views.StoriesIndex({
       collection: this.stories
