@@ -11,6 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'backbone-on-rails'
 gem 'bootstrap-sass'
+gem 'faker'
 
 group :development, :test do
   gem 'pry-rails'
